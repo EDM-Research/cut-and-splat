@@ -90,5 +90,6 @@ These are some of the libraries, packages and repositories we used. Many thanks 
 - PyTorch
 - OpenCV
 - Numpy
+- [ZoeDepth](https://github.com/isl-org/ZoeDepth)
 - [Open3D](http://www.open3d.org/docs/release/index.html)
 - [pyRANSAC-3D](https://github.com/leomariga/pyRANSAC-3D/tree/master)
