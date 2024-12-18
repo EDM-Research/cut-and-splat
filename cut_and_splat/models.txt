@@ -1,0 +1,5 @@
+eyedrops,output/ours/af96f169-7
+bottle,output/ours/3a63c51c-e
+sprite,output/ours/be851fdb-e
+vase,output/ours/2eb21784-a
+plant,output/ours/2eca5280-3
