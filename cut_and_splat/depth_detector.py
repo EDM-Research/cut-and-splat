@@ -22,7 +22,8 @@ class DepthDetector:
                      'img_size': self.target_size}
         config = get_config('zoedepth', "eval", 'nyu', **overwrite)
         self.model = build_model(config)
-        self.model = self.model.cuda()
+        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        self.model = self.model.to(self.device)
         self.model.eval()
 
         self.transform = preprocessing_transforms('test')
@@ -43,7 +44,7 @@ class DepthDetector:
             'focal': focal
         })
 
-        depth = self.infer(sample['image'].cuda(), focal=focal)
+        depth = self.infer(sample['image'].to(self.device), focal=focal)
 
         output = np.squeeze(depth.cpu().numpy())
         output = cv2.resize(output, (original_size[1], original_size[0]))
@@ -96,4 +97,4 @@ class DepthDetector:
         """
         formatted = ((depth / np.max(depth)) * 255).astype(np.uint8)
         cv2.imshow("depth", formatted)
-        cv2.waitKey(1)
+        cv2.waitKey(0)
