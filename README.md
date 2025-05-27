@@ -22,8 +22,14 @@ Specifically the file `render_annotations.py`, the folder `cut_and_splat` and `g
 Some extra requirements are needed to run the Cut-and-Splat code:
 
 ```
-pip install opencv-python open3d pyransac3d
+pip install -r requirements.txt
 ```
+
+We use DepthAnything for finding depth maps in background images.
+Download the following two trained models and place them in `checkpoints/`.
+
+- [depth_anything_metric_depth_indoor.pt](https://huggingface.co/spaces/LiheYoung/Depth-Anything/blob/main/checkpoints_metric_depth/depth_anything_metric_depth_indoor.pt)
+- [depth_anything_vitl14.pth](https://huggingface.co/spaces/LiheYoung/Depth-Anything/blob/main/checkpoints/depth_anything_vitl14.pth)
 
 Additionally, download the [COCO tes set](https://cocodataset.org/#download) for sourcing the background images.
 Set the `BACKGROUND_FOLDER` variable in `render_annotations.py` to the path of that dataset.
@@ -97,4 +103,3 @@ These are some of the libraries, packages and repositories we used. Many thanks 
 - Numpy
 - [ZoeDepth](https://github.com/isl-org/ZoeDepth)
 - [Open3D](http://www.open3d.org/docs/release/index.html)
-- [pyRANSAC-3D](https://github.com/leomariga/pyRANSAC-3D/tree/master)
