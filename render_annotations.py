@@ -25,8 +25,6 @@ BACKGROUND_SIZES = None
 
 def render_annotations(simulation: Simulation, output_path, pipeline, image_count: int = 5000, augment_foreground=False,
                        try_smart_placement=True, random_placement_prob=0.2, random_rotation: bool = False):
-    assert n_viewpoints is None or not try_smart_placement, "Cannot use smart placement and limited viewpoints together"
-
     background = torch.tensor([0, 0, 0], dtype=torch.float32, device="cuda")
 
     background_folder = BackgroundLoader(BACKGROUND_FOLDER, smart_placement=try_smart_placement, target_size=BACKGROUND_SIZES)
@@ -77,11 +75,7 @@ def render_annotations(simulation: Simulation, output_path, pipeline, image_coun
                 dir = R @ placement.direction
                 view = generate_directed_view(model.example_camera, model.foreground_base, model.ground_plane, dir, image_no, height=target_height, width=target_width, up=model.ground_plane.normal, fovx=fovx, fovy=fovy, random_rot=random_rotation)
             else:
-                R, t = random.choice(viewpoint_bank[model])
-                view = Camera(model.example_camera.colmap_id, R, t,
-                              model.example_camera.FoVx, model.example_camera.FoVy,
-                              torch.zeros((1, target_height, target_width)),
-                              gt_alpha_mask=None, image_name=str(image_no), uid=image_no)
+                view = generate_random_camera(model.example_camera, model.foreground_base, model.ground_plane, image_no, height=target_height, width=target_width)
 
             # Render foreground opacity mask in white
             colors = torch.Tensor([1.0, 1.0, 1.0]).unsqueeze(0).repeat(len(model.foreground_model.get_xyz), 1).to("cuda")
