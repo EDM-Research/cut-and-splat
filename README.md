@@ -1,15 +1,31 @@
 # Cut-and-Splat: Leveraging Gaussian Splatting for Synthetic Data Generation
 
-This is the code for our ROBOVIS paper Cut-and-Splat: Leveraging Gaussian Splatting for Synthetic Data Generation.
+This is the code for our paper [Cut-and-Splat: Leveraging Gaussian Splatting for Synthetic Data Generation](https://doi.org/10.1007/978-3-032-00986-9_4), presented at the International Conference on Robotics, Computer Vision and Intelligent Systems ROBOVIS 2025. 
 
 ```
-Bram Vanherle, Brent Zoomers, Jeroen Put, Frank Van Reeth and Nick Michiels. Cut-and-Splat: Leveraging Gaussian Splatting for Synthetic Data Generation. International Conference on Robotics, Computer Vision and Intelligent Systems ROBOVIS 2025, 2025.
+@InProceedings{CutAndSplat2025,
+    author="Vanherle, Bram
+    and Zoomers, Brent
+    and Put, Jeroen
+    and Reeth, Frank Van
+    and Michiels, Nick",
+    editor="R{\"o}ning, Juha
+    and Filipe, Joaquim",
+    title="Cut-and-Splat: Leveraging Gaussian Splatting for Synthetic Data Generation",
+    booktitle="Robotics, Computer Vision and Intelligent Systems",
+    year="2026",
+    publisher="Springer Nature Switzerland",
+    address="Cham",
+    pages="44--62",
+    isbn="978-3-032-00986-9",
+    doi = "10.1007/978-3-032-00986-9_4"
+}
 ```
 
 
 ## IBSYD Dataset
 
-For evaluation in the paper, the IBSYD dataset was introduced. [The dataset can be found here](https://drive.google.com/file/d/18UWG0VSNdqiWYCC3QLtRcdbnAb6Y5ItC/view?usp=drive_link).
+For evaluation in the paper, the IBSYD dataset was introduced. 
 
 ## Installation
 
